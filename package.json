@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
@@ -17,6 +19,8 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "homepage": "https://royalprincesingh.github.io/princeportfolio.github.io"
+    ,
     "@eslint/js": "^9.36.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
@@ -32,4 +36,5 @@
     "tailwindcss": "^4.1.14",
     "vite": "^7.1.7"
   }
+  
 }
