@@ -4,6 +4,144 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  position: relative;
+}
+
+#root {
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+}
+
+section {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.slide-in {
+  animation: slideIn 0.8s ease forwards;
+}
+
+.skill-item {
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-item:nth-child(3) { animation-delay: 0.3s; }
+.skill-item:nth-child(4) { animation-delay: 0.4s; }
+.skill-item:nth-child(5) { animation-delay: 0.5s; }
+.skill-item:nth-child(6) { animation-delay: 0.6s; }
+.skill-item:nth-child(7) { animation-delay: 0.7s; }
+.skill-item:nth-child(8) { animation-delay: 0.8s; }
+
+.project-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, rgba(13, 110, 253, 0.1) 100%);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(13, 110, 253, 0.2) !important;
+}
+
+.rotate-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.rotate-icon:hover {
+  animation: rotate 1s linear infinite;
+}izing: border-box;
+}
+
 body, html {
   overflow-x: hidden;
   width: 100%;

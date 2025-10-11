@@ -11,8 +11,11 @@ function App() {
         backgroundColor: "#000", 
         color: "#fff", 
         minHeight: "100vh",
+        width: "100%",
         maxWidth: "100vw",
-        overflowX: "hidden"
+        overflowX: "hidden",
+        margin: 0,
+        padding: 0
       }}>
       <Navbar />
       <Hero />

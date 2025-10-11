@@ -3,19 +3,14 @@ import { Container, Nav, Navbar as BsNavbar } from "react-bootstrap";
 
 const Navbar = () => {
   return (
-    <BsNavbar expand="lg" bg="dark" variant="dark" fixed="top">
+    <BsNavbar expand="lg" bg="dark" variant="dark" >
       <Container>
         <BsNavbar.Brand href="#home" className="fw-bold text-primary d-flex align-items-center">
           <img
             src="./vite.jpg"
             alt="Prince Singh"
             className="rounded-circle me-2"
-            style={{
-              width: "30px",
-              height: "30px",
-              objectFit: "cover"
-            }}
-          />
+            style={{width: "30px", height: "30px", objectFit: "cover"}} />
           Prince Singh
         </BsNavbar.Brand>
         <BsNavbar.Toggle aria-controls="basic-navbar-nav" />
