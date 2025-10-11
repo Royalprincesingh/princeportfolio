@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/web-tech/',  // Replace with your repository name
+  base: '/',  // For custom domain or username.github.io
   plugins: [
     react({
       babel: {
