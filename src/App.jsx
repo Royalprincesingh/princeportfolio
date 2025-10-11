@@ -7,7 +7,13 @@ import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div style={{ backgroundColor: "#000", color: "#fff", minHeight: "100vh" }}>
+    <div style={{ 
+        backgroundColor: "#000", 
+        color: "#fff", 
+        minHeight: "100vh",
+        maxWidth: "100vw",
+        overflowX: "hidden"
+      }}>
       <Navbar />
       <Hero />
       <About />
