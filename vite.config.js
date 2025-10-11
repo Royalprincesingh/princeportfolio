@@ -3,7 +3,18 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',  // For custom domain or username.github.io
+  base: './',  // Relative paths
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name][extname]',
+        chunkFileNames: 'assets/[name].js',
+        entryFileNames: 'assets/[name].js'
+      }
+    }
+  },
   plugins: [
     react({
       babel: {
