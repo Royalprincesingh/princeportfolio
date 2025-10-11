@@ -7,7 +7,7 @@ const Hero = () => {
       <Container>
         <div className="mb-4">
           <img
-            src="/vite.jpg"
+            src="./vite.jpg"
             alt="Prince Singh"
             className="rounded-circle"
             style={{

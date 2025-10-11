@@ -7,7 +7,7 @@ const Navbar = () => {
       <Container>
         <BsNavbar.Brand href="#home" className="fw-bold text-primary d-flex align-items-center">
           <img
-            src="/vite.jpg"
+            src="./vite.jpg"
             alt="Prince Singh"
             className="rounded-circle me-2"
             style={{
