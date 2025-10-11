@@ -8,19 +8,17 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1",
-    "react": "^19.1.1",
-    "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.1.1"
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.1",
+    "react": "^19.2.0",
+    "react-bootstrap": "^2.9.1",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "homepage": "https://royalprincesingh.github.io/princeportfolio.github.io"
-    ,
     "@eslint/js": "^9.36.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
@@ -34,7 +32,6 @@
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.14",
-    "vite": "^7.1.7"
+    "vite": "^7.1.9"
   }
-  
 }
