@@ -3,7 +3,7 @@ import { Container, Nav, Navbar as BsNavbar } from "react-bootstrap";
 
 const Navbar = () => {
   return (
-    <BsNavbar expand="lg" bg="dark" variant="dark" >
+    <BsNavbar expand="lg" bg="dark" variant="dark" fixed="top">
       <Container>
         <BsNavbar.Brand href="#home" className="fw-bold text-primary d-flex align-items-center">
           <img
