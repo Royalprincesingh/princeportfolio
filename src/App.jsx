@@ -7,22 +7,15 @@ import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div style={{ 
-        backgroundColor: "#000", 
-        color: "#fff", 
-        minHeight: "100vh",
-        width: "100%",
-        maxWidth: "100vw",
-        overflowX: "hidden",
-        margin: 0,
-        padding: 0
-      }}>
+    <div className="portfolio-wrapper bg-black text-light">
       <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
-      <footer className="text-center py-3 text-muted border-top border-secondary">
+      <main className="main-content">
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+      <footer className="portfolio-footer text-center py-3 text-muted border-top border-secondary">
         © {new Date().getFullYear()} Prince Singh | Built with React + Bootstrap
       </footer>
     </div>
