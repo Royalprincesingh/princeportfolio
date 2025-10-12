@@ -20,12 +20,15 @@ app.use(xss()); // Prevent XSS attacks
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://royalprincesingh.github.io'] 
-    : ['http://localhost:5173'],
-  methods: ['POST', 'GET'],
-  credentials: true
+  origin: ['https://royalprincesingh.github.io', 'http://localhost:5173'],
+  methods: ['POST', 'GET', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
+
+// Enable pre-flight requests for all routes
+app.options('*', cors());
 
 // Body parser with size limit
 app.use(express.json({ limit: '10kb' }));
@@ -96,7 +99,7 @@ const validateInput = (req, res, next) => {
 };
 
 // Contact form endpoint
-app.post('/api/contact', limiter, validateInput, async (req, res) => {
+app.post('/api/contact', cors(), limiter, validateInput, async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
