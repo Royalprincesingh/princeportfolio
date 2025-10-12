@@ -18,29 +18,21 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet()); // Security headers
 app.use(xss()); // Prevent XSS attacks
 
-// CORS Middleware
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://royalprincesingh.github.io');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-  
-  next();
-});
-
-// Additional security for specific routes
+// CORS configuration
 const corsOptions = {
   origin: 'https://royalprincesingh.github.io',
-  methods: ['POST', 'GET', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  optionsSuccessStatus: 200
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+  credentials: false,
+  optionsSuccessStatus: 200,
+  preflightContinue: false
 };
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
+// Handle OPTIONS preflight requests for all routes
+app.options('*', cors(corsOptions));
 
 // Body parser with size limit
 app.use(express.json({ limit: '10kb' }));
@@ -111,7 +103,7 @@ const validateInput = (req, res, next) => {
 };
 
 // Contact form endpoint
-app.post('/api/contact', cors(corsOptions), limiter, validateInput, async (req, res) => {
+app.post('/api/contact', limiter, validateInput, async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
