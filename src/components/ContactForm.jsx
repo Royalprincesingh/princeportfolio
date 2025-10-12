@@ -1,9 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { Form, Button, Alert, Container, Spinner } from 'react-bootstrap';
 
-// Get the API URL from environment variable
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/contact';
-const IS_DEV = import.meta.env.DEV;
+// ✅ Updated API URL (points to your Railway backend)
+const API_URL = 'https://princeportfolio-production.up.railway.app/api/contact';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +24,6 @@ const ContactForm = () => {
       ...prev,
       [name]: value
     }));
-    // Clear error message when user starts typing
     setStatus({ message: '', type: '' });
   }, []);
 
@@ -35,7 +33,8 @@ const ContactForm = () => {
     setStatus({ message: '', type: '' });
 
     try {
-      console.log(`Sending request to: ${API_URL}`);
+      console.log(`📨 Sending request to: ${API_URL}`);
+
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
@@ -56,11 +55,9 @@ const ContactForm = () => {
         throw new Error(data.error || 'Failed to send message');
       }
     } catch (error) {
-      console.error('Contact form error:', error);
+      console.error('❌ Contact form error:', error);
       setStatus({
-        message: IS_DEV 
-          ? `Error: ${error.message}` 
-          : 'Failed to send message. Please try again later.',
+        message: `Error: ${error.message}`,
         type: 'danger'
       });
     } finally {
