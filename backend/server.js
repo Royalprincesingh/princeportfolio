@@ -14,21 +14,37 @@ checkEnvVariables();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Remove all CORS headers (clean slate)
+app.use((req, res, next) => {
+  res.removeHeader('Access-Control-Allow-Origin');
+  next();
+});
+
 // Security Middleware
 app.use(xss()); // Prevent XSS attacks
 
-// Enable CORS for all routes
+// Custom CORS middleware
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://royalprincesingh.github.io');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Access-Control-Max-Age', '86400'); // 24 hours
-  
-  // Handle preflight
+  // Always set the CORS headers
+  res.header('Access-Control-Allow-Origin', 'https://royalprincesingh.github.io');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Max-Age', '86400'); // 24 hours
+
+  // Log headers for debugging
+  console.log('Request Headers:', req.headers);
+  console.log('Response Headers:', res.getHeaders());
+
+  // Handle OPTIONS method
   if (req.method === 'OPTIONS') {
-    res.sendStatus(200);
+    console.log('Handling OPTIONS request');
+    res.header('Access-Control-Allow-Origin', 'https://royalprincesingh.github.io');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.sendStatus(204);
     return;
   }
+
   next();
 });
 
@@ -101,7 +117,13 @@ const validateInput = (req, res, next) => {
 };
 
 // Contact form endpoint
-app.post('/api/contact', validateInput, async (req, res) => {
+app.post('/api/contact', (req, res, next) => {
+  // Double-check CORS headers for this specific route
+  res.header('Access-Control-Allow-Origin', 'https://royalprincesingh.github.io');
+  res.header('Access-Control-Allow-Methods', 'POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+}, validateInput, async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
