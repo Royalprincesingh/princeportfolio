@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Form, Button, Alert, Container, Spinner } from 'react-bootstrap';
 
 // ✅ Updated API URL (points to your Railway backend)
-const API_URL = 'https://princeportfolio-production.up.railway.app/api/contact';
+const API_URL = 'https://princeportfolio-production.up.railway.app/contactform';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
