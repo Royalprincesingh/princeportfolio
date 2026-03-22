@@ -3,11 +3,6 @@ import { Container, Button } from "react-bootstrap";
 
 const Hero = () => {
   return (
-    import React from "react";
-import { Container, Button } from "react-bootstrap";
-
-const Hero = () => {
-  return (
     <section id="home" className="hero-section d-flex align-items-center justify-content-center text-center min-vh-100 bg-black text-light">
       <Container>
         <div className="hero-content">
@@ -61,10 +56,6 @@ const Hero = () => {
         </div>
       </Container>
     </section>
-  );
-};
-
-export default Hero;
   );
 };
 
