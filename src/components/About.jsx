@@ -1,57 +1,91 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import profileImg from "../assets/vite.jpg";
 
 const About = () => {
   return (
-    <section id="about" className="py-5 bg-dark text-light">
+    <section id="about" className="py-5" data-aos="fade-up">
       <Container>
-        <h2 className="fw-bold text-primary mb-4 text-center slide-in">About Me</h2>
-        <div className="row justify-content-center">
-          <div className="col-md-8">
-            <p className="mb-4 fade-in" style={{ animationDelay: '0.2s' }}>
-              Passionate and detail-oriented web developer with expertise in full-stack development. Currently pursuing B.Tech in Information Technology at A.P.J Abdul Kalam Technical University (2022-2026), with a strong focus on practical learning and teamwork.
+        <h2 className="fw-bold text-center mb-5" data-aos="fade-down" style={{
+          color: "var(--text-color)",
+          marginBottom: "3rem"
+        }}>
+          About Me
+        </h2>
+        <Row className="align-items-center" style={{ gap: "2rem" }}>
+          <Col md={6} className="text-center mb-4" data-aos="fade-right">
+            <img
+              src={profileImg}
+              alt="Prince Singh"
+              className="rounded-circle shadow-lg mb-4"
+              style={{
+                width: "250px",
+                height: "250px",
+                objectFit: "cover",
+                border: "3px solid var(--accent-1)",
+                boxShadow: "0 0 30px rgba(0, 210, 255, 0.2)"
+              }}
+            />
+          </Col>
+          <Col md={6} data-aos="fade-left">
+            <p className="mb-4" data-aos="fade-up" data-aos-delay="200" style={{
+              color: "var(--text-secondary)",
+              fontSize: "1.1rem",
+              lineHeight: "1.8"
+            }}>
+              Passionate and detail-oriented Full Stack Developer with expertise in JavaScript/Node.js and React.
+              Currently pursuing B.Tech in Information Technology at A.P.J Abdul Kalam Technical University (2022-2026),
+              with a strong focus on AI/ML, IoT solutions, and practical problem-solving.
             </p>
-            
-            <h3 className="h4 text-primary mb-3 slide-in" style={{ animationDelay: '0.4s' }}>Skills</h3>
-            <div className="row g-3 mb-4">
+
+            <Row className="g-3 mb-4">
               {[
-                "HTML/CSS/JavaScript", "Java", "React", "Spring Boot",
-                "MySQL", "MongoDB", "Bootstrap", "Git/GitHub",
-                "Python", "C++", "C", "PHP"
-              ].map((skill, index) => (
-                <div key={skill} className="col-md-3 col-6">
-                  <div className="p-2 border border-secondary rounded text-center skill-item hover-lift" 
-                       style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
-                    {skill}
+                { title: "Name", value: "Prince Singh" },
+                { title: "Email", value: "princesinghsikata@gmail.com" },
+                { title: "Location", value: "Noida, India" },
+                { title: "Education", value: "B.Tech IT (2022-2026)" }
+              ].map((item, index) => (
+                <Col sm={6} key={index}>
+                  <div
+                    className="card"
+                    data-aos="fade-up"
+                    data-aos-delay={400 + index * 100}
+                    style={{
+                      backgroundColor: "var(--card-bg)",
+                      border: "1px solid var(--border-color)",
+                      padding: "1.5rem",
+                      textAlign: "center",
+                      minHeight: "120px",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      borderRadius: "12px",
+                      transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                      cursor: "pointer"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "var(--accent-1)";
+                      e.currentTarget.style.boxShadow = "0 0 20px rgba(0, 210, 255, 0.1)";
+                      e.currentTarget.style.transform = "translateY(-5px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--border-color)";
+                      e.currentTarget.style.boxShadow = "none";
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }}
+                  >
+                    <h5 className="mb-2" style={{ color: "var(--accent-1)" }}>
+                      {item.title}
+                    </h5>
+                    <p className="mb-0" style={{ color: "var(--text-secondary)" }}>
+                      {item.value}
+                    </p>
                   </div>
-                </div>
+                </Col>
               ))}
-            </div>
-
-            <h3 className="h4 text-primary mb-3 slide-in" style={{ animationDelay: '1.8s' }}>Experience</h3>
-            <div className="mb-4">
-              <div className="mb-3 fade-in hover-lift" style={{ animationDelay: '2s' }}>
-                <h4 className="h5 text-light">Full Stack Developer</h4>
-                <p className="text-secondary mb-2">Softpro India Computer Technologies (P) Ltd. | Noida</p>
-                <p className="small text-secondary">June 2025 - July 2025</p>
-              </div>
-              <div className="mb-3 fade-in hover-lift" style={{ animationDelay: '2.2s' }}>
-                <h4 className="h5 text-light">Web Development Intern</h4>
-                <p className="text-secondary mb-2">Apex Planet Software Pvt. Ltd. | Remote</p>
-                <p className="small text-secondary">May 2025 - June 2025</p>
-              </div>
-            </div>
-
-            <h3 className="h4 text-primary mb-3 slide-in" style={{ animationDelay: '2.4s' }}>Certifications</h3>
-            <ul className="list-unstyled">
-              <li className="mb-2 fade-in hover-lift" style={{ animationDelay: '2.6s' }}>• Microsoft Azure AI Essentials Professional Certificate</li>
-              <li className="mb-2 fade-in hover-lift" style={{ animationDelay: '2.7s' }}>• Web Development Training (Digital Navik)</li>
-              <li className="mb-2 fade-in hover-lift" style={{ animationDelay: '2.8s' }}>• Java Web Development with AI (HCLTech)</li>
-              <li className="mb-2 fade-in hover-lift" style={{ animationDelay: '2.9s' }}>• Training on Ethical Hacking (Internshala)</li>
-              <li className="mb-2 fade-in hover-lift" style={{ animationDelay: '3.0s' }}>• Introduction to PHP (Simplilearn)</li>
-            </ul>
-          </div>
-        </div>
+            </Row>
+          </Col>
+        </Row>
       </Container>
     </section>
   );

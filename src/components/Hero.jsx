@@ -1,72 +1,145 @@
-import React from "react";
-import { Container, Button } from "react-bootstrap";
+import React, { useEffect, useRef } from "react";
+import VanillaTilt from "vanilla-tilt";
 
 const Hero = () => {
-  return (
-    import React from "react";
-import { Container, Button } from "react-bootstrap";
+  const tiltRef = useRef(null);
 
-const Hero = () => {
+  useEffect(() => {
+    if (tiltRef.current) {
+      VanillaTilt.init(tiltRef.current, {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3,
+      });
+    }
+  }, []);
+
   return (
-    <section id="home" className="hero-section d-flex align-items-center justify-content-center text-center min-vh-100 bg-black text-light">
-      <Container>
-        <div className="hero-content">
-          <div className="profile-img-wrapper mb-4 mt-5 fade-in" style={{ animationDelay: '0.2s' }}>
-            <img
-              src="./vite.jpg"
-              alt="Prince Singh"
-              className="profile-img rounded-circle shadow-lg"
-              style={{
-                width: "250px",
-                height: "250px",
-                objectFit: "cover",
-                border: "4px solid var(--bs-primary)",
-                marginTop: "60px"
-              }}
-            />
+    <section className="hero-section" id="home">
+      {/* Background Elements */}
+      <div className="mesh-gradient mesh-1"></div>
+      <div className="mesh-gradient mesh-2"></div>
+
+      {/* Interactive Neural Network SVG */}
+      <div className="neural-network">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0,20 Q50,5 100,20 T200,20" fill="none" stroke="url(#grad1)" strokeWidth="0.1" className="path-anim" />
+          <path d="M0,50 Q50,35 100,50 T200,50" fill="none" stroke="url(#grad1)" strokeWidth="0.1" className="path-anim-delay" />
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#00d2ff" stopOpacity="0" />
+              <stop offset="50%" stopColor="#925ff0" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#00d2ff" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div className="container">
+        <div className="row align-items-center min-vh-100">
+          {/* Left: Photo Section */}
+          <div className="col-lg-5 text-center order-lg-2 mb-5 mb-lg-0">
+            <div className="photo-container" ref={tiltRef}>
+              <div className="photo-glow-effect"></div>
+              <img 
+                src="/royal-singh.png" 
+                alt="Royal Singh"
+                className="profile-photo shadow-lg"
+                onError={(e) => { e.target.src = "https://via.placeholder.com/300/12121a/00d2ff?text=RS"; }}
+              />
+            </div>
           </div>
-          <h1 className="hero-title display-3 fw-bold mb-3 mt-4 slide-in" style={{ animationDelay: '0.4s' }}>
-            Hi, I'm <span className="text-primary">Prince Singh</span>
-          </h1>
-          <p className="hero-subtitle lead text-secondary mb-4 fade-in" style={{ fontSize: "1.25rem", animationDelay: '0.6s' }}>
-            Full Stack Developer | B.Tech IT Student | Java & React Specialist
-          </p>
-          <div className="contact-links text-light mb-4 fade-in" style={{ animationDelay: '0.8s' }}>
-            <a href="tel:+918858180597" className="contact-link text-light text-decoration-none me-3 hover-lift">
-              <i className="bi bi-telephone-fill me-2 rotate-icon"></i>+91-8858180597
-            </a>
-            <a href="mailto:princesinghsikata@gmail.com" className="contact-link text-light text-decoration-none me-3 hover-lift">
-              <i className="bi bi-envelope-fill me-2 rotate-icon"></i>princesinghsikata@gmail.com
-            </a>
-          </div>
-          <div className="social-links mb-4 fade-in" style={{ animationDelay: '1s' }}>
-            <a href="https://linkedin.com/in/royalprincesingh" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light me-3 hover-lift">
-              <i className="bi bi-linkedin me-2 rotate-icon"></i>LinkedIn
-            </a>
-            <a href="https://github.com/royalprincesingh" target="_blank" rel="noopener noreferrer" className="btn btn-outline-light hover-lift">
-              <i className="bi bi-github me-2 rotate-icon"></i>GitHub
-            </a>
-          </div>
-          <div className="cta-wrapper">
-            <Button 
-              variant="primary" 
-              size="lg" 
-              href="#projects" 
-              className="cta-button px-4 mt-2 fade-in hover-lift" 
-              style={{ animationDelay: '1.2s' }}
-            >
-              View My Work
-            </Button>
+
+          {/* Right: Content Section */}
+          <div className="col-lg-7 text-center text-lg-start order-lg-1">
+            <div className="badge-modern mb-3">
+              <span className="dot"></span> Available for Opportunities
+            </div>
+            
+            <h1 className="hero-title">
+              ROYAL <span className="last-name">SINGH</span>
+            </h1>
+            
+            <h2 className="hero-subtitle mb-4">
+              Full Stack Developer <span className="separator">|</span> AI/ML & Computer Vision Specialist
+            </h2>
+            
+            <p className="hero-description mb-5">
+              Building scalable web applications and intelligent AI systems. Creator of <strong>Proctor AI</strong>—an intelligent proctoring system, and <strong>TrueSight AI</strong>—advanced computer vision platform. Specialized in MERN Stack, Machine Learning, and IoT Solutions.
+            </p>
+
+            <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+              <a href="#projects" className="btn-main primary">Explore Work</a>
+              <a href="#contact" className="btn-main secondary">Get In Touch</a>
+            </div>
           </div>
         </div>
-      </Container>
+      </div>
+
+      <style>{`
+        .hero-section {
+          background: #08080c;
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* Mesh Gradients */
+        .mesh-1 { position: absolute; top: -10%; left: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%); }
+        .mesh-2 { position: absolute; bottom: -10%; right: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(146, 95, 240, 0.15) 0%, transparent 70%); }
+
+        /* Neural Network Animation */
+        .neural-network { position: absolute; width: 100%; height: 100%; opacity: 0.4; pointer-events: none; }
+        .path-anim { stroke-dasharray: 100; animation: dash 20s linear infinite; }
+        @keyframes dash { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+
+        /* Photo Styling */
+        .photo-container { position: relative; z-index: 5; }
+        .profile-photo {
+          width: 320px; height: 320px;
+          border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+          border: 2px solid rgba(255,255,255,0.1);
+          animation: morph 8s ease-in-out infinite;
+          object-fit: cover;
+        }
+        @keyframes morph {
+          0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+          50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+        }
+
+        /* Typography */
+        .hero-title { font-size: 4.5rem; font-weight: 900; color: #00d2ff; letter-spacing: -2px; }
+        .last-name { color: #e2e8f0; }
+        .hero-subtitle { color: #94a3b8; font-size: 1.5rem; }
+        .hero-description { color: #94a3b8; max-width: 550px; font-size: 1.1rem; }
+
+        /* Badge */
+        .badge-modern {
+          display: inline-flex; align-items: center;
+          background: rgba(0, 210, 255, 0.1);
+          color: #00d2ff; padding: 6px 16px;
+          border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+        }
+        .dot { width: 8px; height: 8px; background: #00d2ff; border-radius: 50%; margin-right: 10px; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* Modern Buttons */
+        .btn-main {
+          padding: 12px 32px; border-radius: 12px; font-weight: 700;
+          text-decoration: none; transition: 0.4s;
+        }
+        .primary { background: #00d2ff; color: #08080c; box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2); }
+        .primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4); }
+        .secondary { border: 1px solid rgba(255,255,255,0.1); color: #fff; backdrop-filter: blur(10px); }
+        .secondary:hover { background: rgba(255,255,255,0.05); border-color: #925ff0; }
+
+        @media (max-width: 768px) {
+          .hero-title { font-size: 3rem; }
+          .profile-photo { width: 250px; height: 250px; }
+        }
+      `}</style>
     </section>
   );
 };
 
 export default Hero;
-  );
-};
-
-export default Hero;
-
