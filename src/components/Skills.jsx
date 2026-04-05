@@ -94,9 +94,9 @@ const Skills = () => {
                 words={[
                   "Trained ML models to classify suspicious behavior...",
                   "Built computer vision systems with OpenCV...",
-                  "Developed AI-powered proctoring solutions...",
-                  "Implemented facial recognition algorithms...",
-                  "Created real-time behavior analysis systems..."
+                  "Engineered AI-powered proctoring solutions...",
+                  "Applied facial recognition algorithms...",
+                  "Established real-time behavior analysis systems..."
                 ]}
                 loop={true}
                 cursor

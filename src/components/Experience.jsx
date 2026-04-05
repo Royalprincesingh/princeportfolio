@@ -9,9 +9,9 @@ const Experience = () => {
       location: "Noida, UP",
       description: "Engineered an agri-marketplace with real-time pricing and secure payments, demonstrating expertise in modern web technologies.",
       achievements: [
-        "Developed AgriTrade platform with secure payment integration",
-        "Implemented role-based access control systems",
-        "Built scalable web applications using Node.js, Express & React",
+        "Engineered AgriTrade platform with secure payment integration",
+        "Established role-based access control supporting Admin, Farmer, and Buyer roles",
+        "Constructed scalable web applications using Node.js, Express & React",
         "Improved system efficiency via modular backend architecture"
       ],
       tech: ["JavaScript", "Node.js", "React"],
@@ -25,8 +25,8 @@ const Experience = () => {
       location: "Noida, UP",
       description: "Specialized training in Java Web Development with AI integration, focusing on secure authentication and CRUD operations.",
       achievements: [
-        "Developed InstaSmart platform with secure authentication",
-        "Implemented comprehensive CRUD operations",
+        "Constructed InstaSmart platform with secure authentication",
+        "Applied comprehensive CRUD operations with session management",
         "Built robust backend systems with Node.js and Express",
         "Enhanced application security and data integrity"
       ],
