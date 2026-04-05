@@ -192,11 +192,8 @@ const Resume = ({ show, handleClose }) => {
 
           {/* Languages */}
           <div className="mb-4">
-            <h3 style={sectionHeading}>LANGUAGES</h3>
+            <h3 style={sectionHeading}>SPOKEN LANGUAGES</h3>
             <div>
-              <strong>JavaScript:</strong> Native &nbsp;|&nbsp;
-              <strong>Python:</strong> Advanced &nbsp;|&nbsp;
-              <strong>Java:</strong> Intermediate &nbsp;|&nbsp;
               <strong>English:</strong> Professional &nbsp;|&nbsp;
               <strong>Hindi:</strong> Native
             </div>
