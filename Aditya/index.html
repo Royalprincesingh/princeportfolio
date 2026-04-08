@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Someone Special - Aditya Rai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            font-size: 2rem;
+            z-index: 1;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Messages Section */
+        .wishes-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 2rem;
+        }
+
+        .wishes-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .wish-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: popIn 0.6s ease;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .wish-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .wish-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .wish-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .messages {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .messages-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .message-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .message-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .message-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .message-card p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .heart-signature {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Memories Section */
+        .memories {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 4rem 2rem;
+        }
+
+        .gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .memory-card:hover::before {
+            opacity: 1;
+        }
+
+        .memory-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .memory-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .memory-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .memory-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Image Optimization for Mobile */
+        .memory-card {
+            overflow: hidden;
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+        }
+
+        .timeline-content[style*="background: url"] {
+            background-size: contain !important;
+            background-position: center !important;
+            -webkit-background-size: contain;
+        }
+
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            max-width: 100%;
+            height: auto;
+        }
+        .timeline {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+            padding-right: 5%;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+            text-align: left;
+            padding-left: 5%;
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .timeline-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            color: #764ba2;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 4px solid #667eea;
+            border-radius: 50%;
+            margin-top: 1rem;
+        }
+
+        /* Special Message Section */
+        .special-message {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .lock-box {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lock-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .lock-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .lock-box p {
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .reveal-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .reveal-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+        }
+
+        .secret-message {
+            display: none;
+            animation: slideDown 0.5s ease;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            color: #333;
+        }
+
+        .secret-message.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Heart Counter Section */
+        .heart-counter {
+            background: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .counter-box {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .counter-subtitle {
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .heart-button {
+            background: none;
+            border: none;
+            font-size: 4rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            animation: heartBeat 0.6s ease;
+        }
+
+        .heart-button:hover {
+            transform: scale(1.1);
+        }
+
+        .heart-button:active {
+            animation: heartBeat 0.4s ease;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .counter-display {
+            font-size: 3rem;
+            color: #764ba2;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .counter-text {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Final Section */
+        .closing {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .closing h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .closing-hearts {
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .closing p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .signature {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .footer {
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .messages-container {
+                grid-template-columns: 1fr;
+            }
+
+            .wishes-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .memory-card {
+                aspect-ratio: 1;
+            }
+
+            .timeline-container::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                text-align: left;
+                padding-left: 2.5rem;
+                margin-left: 0 !important;
+                margin-bottom: 2rem;
+            }
+
+            .timeline-item:nth-child(odd) {
+                padding-right: 0;
+                text-align: left;
+                padding-left: 2.5rem;
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+                padding-left: 2.5rem;
+            }
+
+            .timeline-content {
+                padding: 1rem !important;
+            }
+
+            .timeline-dot {
+                left: 0;
+                transform: translateX(-8px);
+                width: 12px;
+                height: 12px;
+            }
+
+            .closing-hearts {
+                gap: 0.5rem;
+            }
+
+            .messages {
+                padding: 2rem 1rem;
+            }
+
+            .memories {
+                padding: 2rem 1rem;
+            }
+
+            .timeline {
+                padding: 2rem 1rem;
+            }
+
+            .heart-button {
+                font-size: 3rem;
+            }
+
+            .counter-display {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .message-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .message-card p {
+                font-size: 0.9rem;
+            }
+
+            .wish-card {
+                padding: 1.5rem;
+            }
+
+            .wish-emoji {
+                font-size: 2.5rem;
+            }
+
+            .wish-name {
+                font-size: 1.1rem;
+            }
+
+            .wish-text {
+                font-size: 0.9rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .memory-card {
+                border-radius: 10px;
+            }
+
+            .memory-title {
+                font-size: 0.9rem !important;
+            }
+
+            .memory-date {
+                font-size: 0.75rem !important;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+                width: 100%;
+            }
+
+            .timeline-content {
+                padding: 0.8rem !important;
+                border-radius: 8px;
+            }
+
+            .timeline-title {
+                font-size: 1.1rem !important;
+            }
+
+            .timeline-date {
+                font-size: 0.8rem !important;
+            }
+
+            .lock-box {
+                padding: 1.5rem;
+            }
+
+            .reveal-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .counter-box {
+                padding: 1.5rem;
+            }
+
+            .heart-button {
+                font-size: 2.5rem;
+            }
+
+            .counter-display {
+                font-size: 2rem;
+            }
+
+            .closing {
+                padding: 3rem 1.5rem;
+                min-height: 400px;
+                background-attachment: scroll;
+                background-size: cover;
+            }
+
+            .closing h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .closing p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .footer {
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .wish-card {
+                padding: 1.2rem;
+            }
+
+            .wish-emoji {
+                font-size: 2rem;
+            }
+
+            .wish-name {
+                font-size: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.8rem;
+            }
+
+            .timeline-dot {
+                width: 10px;
+                height: 10px;
+                border-width: 3px;
+            }
+        }
+
+        /* Birthday Modal Styles */
+        .birthday-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .birthday-modal.show {
+            display: flex;
+        }
+
+        .birthday-modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: bounceIn 0.6s ease;
+        }
+
+        .birthday-modal-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: pulse 1.5s ease infinite;
+        }
+
+        .birthday-modal-content p {
+            font-size: 1.3rem;
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .birthday-emoji {
+            font-size: 4rem;
+            animation: float 3s ease-in-out infinite;
+            margin: 1rem 0;
+        }
+
+        .close-birthday-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .close-birthday-btn:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .like-birthday-btn {
+            background: linear-gradient(135deg, #FF6B9D 0%, #FF1493 100%);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        .like-birthday-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+        }
+
+        .like-birthday-btn:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Birthday Modal -->
+    <div class="birthday-modal" id="birthdayModal">
+        <div class="birthday-modal-content">
+            <div class="birthday-emoji">🎉</div>
+            <h1>Happy Birthday</h1>
+            <h2 style="font-size: 2.5rem; margin: 0.5rem 0;">Aditya Rai! 🎂</h2>
+            <p>Today marks the day the world became brighter with your arrival!</p>
+            <p style="font-size: 1.1rem; margin: 1.5rem 0;">Wishing you a day filled with love, laughter, and countless beautiful moments. You deserve all the happiness in the world. 🌟</p>
+            <div class="birthday-emoji">😍 🎈 💝</div>
+            <p style="font-style: italic; margin-top: 2rem;">Thank you for being the most wonderful person in my life. Here's to celebrating YOU today and every day! 💕</p>
+            
+            <div style="margin-top: 2rem;">
+                <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">Show Your Love 💕</p>
+                <button class="like-birthday-btn" onclick="addBirthdayLike()">❤️ Like</button>
+                <p id="likeCounter" style="font-size: 1.3rem; margin-top: 1rem; font-weight: 700;">0 / 100 ❤️</p>
+                <p id="likeMessage" style="font-size: 1rem; margin-top: 0.5rem; color: #FFD700;">Click to show your love! 💕</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>❤️ For Someone Special</h1>
+            <p>Aditya Rai</p>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">A journey through our beautiful moments together</p>
+            
+            <div class="birthday-wish-card" style="margin-top: 3rem; padding: 2.5rem; background: rgba(255,255,255,0.15); border-radius: 20px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); max-width: 500px; animation: popIn 0.6s ease;">
+                <p style="font-size: 1.3rem; margin-bottom: 1.5rem;">🎂 Happy Birthday My Love! 🎉</p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">Dear Aditya,</p>
+                <p style="font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem;">Today is YOUR day, the day the world got more beautiful because you were born. You're not just my girlfriend, you're my everything - my reason to smile, my adventure, my home.
+
+Every moment with you feels like a beautiful dream. Your laugh, your care, your love makes my life complete. I promise to love you more with each passing day.
+
+Thank you for being mine. Happy Birthday to the most wonderful person in my life! 💕</p>
+                <p style="font-size: 1.1rem; font-weight: 700;">Forever yours,</p>
+                <p style="font-size: 1.2rem; font-weight: 700; color: #FFD700;">Prince Singh 💑</p>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Wishes Section -->
+    <!-- Messages Section -->
+    <section class="messages">
+        <h2 class="section-title">Words From My Heart</h2>
+        <div class="messages-container">
+            <div class="message-card">
+                <h3>To My Dearest Aditya</h3>
+                <p>Every moment with you feels like a beautiful dream. Your smile lights up my world, and your laughter is the melody that makes my heart sing. You are the reason I believe in magic.</p>
+                <p class="heart-signature">With all my love ❤️</p>
+            </div>
+
+            <div class="message-card">
+                <h3>What You Mean to Me</h3>
+                <p>You are my sunshine on cloudy days, my anchor in stormy seas, and my greatest adventure. With you, every day is a new chapter in our beautiful story.</p>
+                <p class="heart-signature">With all my love ❤️</p>
+            </div>
+
+            <div class="message-card">
+                <h3>Forever & Always</h3>
+                <p>I promise to cherish every moment, celebrate every joy, and stand by you through every challenge. You are my today and all of my tomorrows.</p>
+                <p class="heart-signature">With all my love ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section class="memories">
+        <h2 class="section-title">Our Beautiful Memories</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #555;">Every picture tells our story</p>
+        
+        <div class="gallery">
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('IMG20240106190959.jpg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">📸</div>
+                    <div class="memory-title">When We First Met</div>
+                    <div class="memory-date">January 6, 2024</div>
+                    <p style="font-size: 0.9rem;">That magical sunset</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('DSC_0337.JPG') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">💕</div>
+                    <div class="memory-title">Our First Date</div>
+                    <div class="memory-date">8 March 2024</div>
+                    <p style="font-size: 0.9rem;">Beautiful moments</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('WhatsApp Image 2026-04-08 at 22.51.45 (1).jpeg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">😊</div>
+                    <div class="memory-title">Our Shadow</div>
+                    <div class="memory-date">Our Love</div>
+                    <p style="font-size: 0.9rem;">Together forever</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('WhatsApp Image 2026-04-08 at 22.27.32.jpeg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">💑</div>
+                    <div class="memory-title">Us Together</div>
+                    <div class="memory-date">Beautiful Day</div>
+                    <p style="font-size: 0.9rem;">Precious moment</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('WhatsApp Image 2026-04-08 at 22.27.33.jpeg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">✨</div>
+                    <div class="memory-title">Special Moment</div>
+                    <div class="memory-date">Just Us</div>
+                    <p style="font-size: 0.9rem;">Happy together</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('WhatsApp Image 2026-04-08 at 22.27.35 (1).jpeg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">🌟</div>
+                    <div class="memory-title">Memories Made</div>
+                    <div class="memory-date">With You</div>
+                    <p style="font-size: 0.9rem;">Forever smiles</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('WhatsApp Image 2026-04-08 at 22.27.35.jpeg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">💖</div>
+                    <div class="memory-title">Love Moments</div>
+                    <div class="memory-date">Our Story</div>
+                    <p style="font-size: 0.9rem;">Pure happiness</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('WhatsApp Image 2026-04-08 at 22.51.44.jpeg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">😍</div>
+                    <div class="memory-title">You & Me</div>
+                    <div class="memory-date">Forever</div>
+                    <p style="font-size: 0.9rem;">Always together</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('WhatsApp Image 2026-04-08 at 22.51.45.jpeg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">🥰</div>
+                    <div class="memory-title">Our Love Story</div>
+                    <div class="memory-date">Every Day</div>
+                    <p style="font-size: 0.9rem;">Blessed with you</p>
+                </div>
+            </div>
+
+            <div class="memory-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('WhatsApp Image 2026-04-08 at 22.51.46.jpeg') center/contain no-repeat; background-size: contain;">
+                <div class="memory-content">
+                    <div class="memory-emoji">💝</div>
+                    <div class="memory-title">Endless Love</div>
+                    <div class="memory-date">All Time</div>
+                    <p style="font-size: 0.9rem;">You & Me Always</p>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 3rem; color: #555; font-size: 0.95rem;">Replace these with your special photos to make it truly yours ✨</p>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h2 class="section-title">Our Journey Together</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('IMG20240106190959.jpg') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">✨</div>
+                    <div class="timeline-date">JANUARY 6, 2024</div>
+                    <div class="timeline-title">When We First Met</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('DSC_0337.JPG') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">💕</div>
+                    <div class="timeline-date">8 MARCH 2024</div>
+                    <div class="timeline-title">Our First Date</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('WhatsApp Image 2026-04-08 at 22.27.32.jpeg') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">💑</div>
+                    <div class="timeline-date">BEAUTIFUL MOMENT</div>
+                    <div class="timeline-title">Us Together</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('WhatsApp Image 2026-04-08 at 22.27.33.jpeg') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">😊</div>
+                    <div class="timeline-date">SPECIAL DAY</div>
+                    <div class="timeline-title">Happy Together</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('WhatsApp Image 2026-04-08 at 22.27.35 (1).jpeg') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">🌟</div>
+                    <div class="timeline-date">PRECIOUS MOMENT</div>
+                    <div class="timeline-title">Memories Forever</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('WhatsApp Image 2026-04-08 at 22.27.35.jpeg') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">💖</div>
+                    <div class="timeline-date">OUR STORY</div>
+                    <div class="timeline-title">Love Moments</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('WhatsApp Image 2026-04-08 at 22.51.44.jpeg') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">😍</div>
+                    <div class="timeline-date">CHERISHED MOMENT</div>
+                    <div class="timeline-title">You & Me</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('WhatsApp Image 2026-04-08 at 22.51.45.jpeg') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">🥰</div>
+                    <div class="timeline-date">EVERY SINGLE DAY</div>
+                    <div class="timeline-title">Our Love Story</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" style="background: url('WhatsApp Image 2026-04-08 at 22.51.46.jpeg') center/contain no-repeat; min-height: 300px; padding: 0; border-radius: 10px; overflow: hidden;">
+                </div>
+                <div class="timeline-content" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin-top: 0; border-radius: 0;">
+                    <div class="timeline-emoji">💝</div>
+                    <div class="timeline-date">TODAY & FOREVER</div>
+                    <div class="timeline-title">Endless Love</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-emoji">💫</div>
+                    <div class="timeline-date">ALWAYS & FOREVER</div>
+                    <div class="timeline-title">Our Forever Journey</div>
+                    <div class="timeline-description">Every moment with you is a blessing. Here's to a beautiful future together, creating infinite memories.</div>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 3rem; color: #667eea; font-weight: 600;">Customize these dates and memories with your own special moments 💫</p>
+    </section>
+
+    <!-- Special Message Section -->
+    <section class="special-message">
+        <h2 class="section-title" style="color: white;">Something Special For You</h2>
+        <div class="lock-box">
+            <div class="lock-icon">🔒</div>
+            <h3>A Special Message Awaits</h3>
+            <p>Click the button below to reveal something close to my heart</p>
+            <button class="reveal-btn" onclick="revealMessage()">Open My Heart 💝</button>
+            
+            <div class="secret-message" id="secretMessage">
+                <h3 style="color: #764ba2; margin-bottom: 1rem;">My Dearest Aditya,</h3>
+                <p style="color: #555; line-height: 1.8;">
+                    In a world full of people, you are my person. You've shown me what it means to truly love and be loved. Every single day with you is a blessing I never take for granted. Your kindness, your laughter, your presence - they mean everything to me. Thank you for being the most amazing person in my life. I can't wait to spend forever creating beautiful memories with you.
+                </p>
+                <p style="color: #764ba2; font-weight: 600; margin-top: 1rem;">Forever Yours ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heart Counter Section -->
+    <section class="heart-counter">
+        <h2 class="section-title">Show Your Love</h2>
+        <div class="counter-box" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%), url('PHOTO-2026-04-08-23-21-23.jpg') center/contain no-repeat; background-size: contain;">
+            <p class="counter-subtitle">Click the heart as many times as you love me! 😊</p>
+            <button class="heart-button" onclick="addHeart()">❤️</button>
+            <div class="counter-display" id="counter">0</div>
+            <p class="counter-text">Times you showed your love</p>
+        </div>
+    </section>
+
+    <!-- Closing Section -->
+        <section class="closing" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.35) 0%, rgba(118, 75, 162, 0.35) 100%), url('WhatsApp Image 2026-04-08 at 22.51.45 (1).jpeg') left center/contain no-repeat; background-attachment: fixed;">
+        <p>This website is just a small reflection of how much you mean to me. You are my today, my tomorrow, and all of my forevers. Thank you for being the most amazing person in my life.</p>
+        
+        <div class="closing-hearts">
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+            <span>❤️</span>
+        </div>
+
+        <p class="signature">Forever Yours,</p>
+        <p style="font-size: 1.3rem; font-weight: 600;">With All My Love 💕</p>
+
+        <div class="footer">
+            <p>Made with ❤️ just for you</p>
+        </div>
+    </section>
+
+    <script>
+        let heartCount = 0;
+
+        function addHeart() {
+            heartCount++;
+            document.getElementById('counter').textContent = heartCount;
+            
+            // Add animation effect
+            const counterDisplay = document.getElementById('counter');
+            counterDisplay.style.animation = 'none';
+            setTimeout(() => {
+                counterDisplay.style.animation = 'heartBeat 0.6s ease';
+            }, 10);
+        }
+
+        function revealMessage() {
+            const secretMessage = document.getElementById('secretMessage');
+            secretMessage.classList.toggle('show');
+            
+            // Change button text
+            const button = event.target;
+            if (secretMessage.classList.contains('show')) {
+                button.textContent = 'Hide My Heart 💝';
+            } else {
+                button.textContent = 'Open My Heart 💝';
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Load saved heart count from localStorage
+        window.addEventListener('load', () => {
+            const savedCount = localStorage.getItem('heartCount');
+            if (savedCount) {
+                heartCount = parseInt(savedCount);
+                document.getElementById('counter').textContent = heartCount;
+            }
+        });
+
+        // Save heart count to localStorage whenever it changes
+        function addHeart() {
+            heartCount++;
+            document.getElementById('counter').textContent = heartCount;
+            localStorage.setItem('heartCount', heartCount);
+            
+            // Add animation effect
+            const counterDisplay = document.getElementById('counter');
+            counterDisplay.style.animation = 'none';
+            setTimeout(() => {
+                counterDisplay.style.animation = 'heartBeat 0.6s ease';
+            }, 10);
+        }
+
+        // Birthday notification at midnight on April 9
+        let birthdayLikeCount = 0;
+
+        function checkBirthday() {
+            const now = new Date();
+            const month = now.getMonth() + 1; // 0-indexed
+            const date = now.getDate();
+
+            // Show birthday popup if it's April 9 (any time of day)
+            if (month === 4 && date === 9) {
+                const lastBirthdayDate = localStorage.getItem('lastBirthdayDate');
+                const today = `2026-04-09`;
+                
+                if (lastBirthdayDate !== today) {
+                    // Reset like count for new birthday modal
+                    birthdayLikeCount = 0;
+                    setTimeout(() => {
+                        document.getElementById('birthdayModal').classList.add('show');
+                        document.getElementById('likeCounter').textContent = '0 / 100 ❤️';
+                        document.getElementById('likeMessage').textContent = 'Click to show your love! 💕';
+                        localStorage.setItem('lastBirthdayDate', today);
+                    }, 500);
+                }
+            }
+        }
+
+        function addBirthdayLike() {
+            birthdayLikeCount++;
+            document.getElementById('likeCounter').textContent = birthdayLikeCount + ' / 100 ❤️';
+            
+            // Update message based on like count
+            const remaining = 100 - birthdayLikeCount;
+            if (remaining > 0) {
+                document.getElementById('likeMessage').textContent = `${remaining} more likes to close! 💕`;
+            } else {
+                document.getElementById('likeMessage').textContent = '🎉 Love Complete! You can now close! 🎉';
+                document.getElementById('likeMessage').style.color = '#FFD700';
+                // Enable close button after 100 likes
+                setTimeout(() => {
+                    closeBirthdayPopup();
+                }, 1000);
+            }
+        }
+
+        function closeBirthdayPopup() {
+            if (birthdayLikeCount >= 100) {
+                document.getElementById('birthdayModal').classList.remove('show');
+                birthdayLikeCount = 0;
+            }
+        }
+
+        // Check birthday status when page loads
+        window.addEventListener('load', () => {
+            checkBirthday();
+        });
+
+        // Check every minute if it's birthday time
+        setInterval(checkBirthday, 60000);
+    </script>
+</body>
+</html>
