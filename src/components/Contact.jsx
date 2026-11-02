@@ -530,7 +530,6 @@ const Contact = () => {
         /* Gradient Text */
         .gradient-text {
           background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-1));
-          background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
