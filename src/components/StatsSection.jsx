@@ -1,9 +1,7 @@
 import React from "react";
 
 const StatsSection = () => {
-  const [counts, setCounts] = useState({ projects: 0, certifications: 0, experience: 0, contributions: 0 });
-
-  const stats = [
+const stats = [
     { label: "Projects Completed", value: 12, icon: "bi bi-rocket-takeoff-fill", color: "#00d2ff" },
     { label: "Certifications Earned", value: 13, icon: "bi bi-trophy-fill", color: "#925ff0" },
     { label: "Years of Experience", value: 3, icon: "bi bi-briefcase-fill", color: "#ff6b35" },
@@ -69,13 +67,7 @@ const StatsSection = () => {
                     backgroundClip: "text",
                     marginBottom: "0.5rem"
                   }}>
-                    {stat.label === "Years of Experience" 
-                      ? stat.value 
-                      : stat.label === "Certifications Earned"
-                      ? stat.value
-                      : stat.label === "Projects Completed"
-                      ? stat.value
-                      : stat.value}
+                    {stat.value}
                     {stat.label === "Years of Experience" && "+"}
                   </div>
                   <p style={{
