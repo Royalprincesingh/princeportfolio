@@ -37,15 +37,15 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-5" data-aos="fade-up">
+    <section id="experience" className="py-5">
       <div className="container">
-        <h2 className="text-center mb-5" data-aos="fade-down" style={{ color: "var(--text-color)" }}>
+        <h2 className="text-center mb-5" style={{ color: "var(--text-color)" }}>
           Professional Experience
         </h2>
 
         <div className="timeline">
           {experiences.map((exp, index) => (
-            <div key={index} className="timeline-item" data-aos="fade-up" data-aos-delay={index * 200}>
+            <div key={index} className="timeline-item">
               <div className="timeline-marker" style={{ backgroundColor: exp.color }}></div>
               <div className="timeline-content">
                 <div className="experience-card" style={{
@@ -190,14 +190,10 @@ const Experience = () => {
           z-index: 0;
         }
 
-        .experience-card:hover::before {
-          left: 100%;
-        }
-
         .experience-card:hover {
           border-color: var(--accent-1) !important;
           box-shadow: 0 0 40px rgba(0, 210, 255, 0.2) !important;
-          transform: translateX(5px) scale(1.02);
+          
         }
 
         .experience-card > * {

@@ -152,7 +152,7 @@ const Achievements = () => {
     : certifications.filter(cert => cert.category === activeCategory);
 
   return (
-    <section id="achievements" className="py-6 achievements-section" data-aos="fade-up">
+    <section id="achievements" className="py-6 achievements-section">
       <Container>
         {/* Section Header */}
         <div className="section-header mb-5">
@@ -166,7 +166,7 @@ const Achievements = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="category-filter mb-5" data-aos="fade-down" data-aos-delay="100">
+        <div className="category-filter mb-5">
           <div className="d-flex justify-content-center flex-wrap gap-3">
             {categories.map(category => (
               <button
@@ -195,7 +195,7 @@ const Achievements = () => {
         <div className="certifications-grid mb-6">
           <Row className="g-4">
             {filteredCerts.map((cert, index) => (
-              <Col md={6} lg={4} key={index} data-aos="zoom-in" data-aos-delay={index * 100}>
+              <Col md={6} lg={4} key={index}>
                 <div
                   className="cert-card"
                   style={{
@@ -285,7 +285,7 @@ const Achievements = () => {
 
         {/* Publications Section */}
         {publications.length > 0 && (
-          <div className="publications-section mb-6" data-aos="fade-up" data-aos-delay="200">
+          <div className="publications-section mb-6">
             <h3 style={{
               color: "var(--text-color)",
               marginBottom: "2rem",
@@ -298,7 +298,7 @@ const Achievements = () => {
             </h3>
             <Row className="g-4">
               {publications.map((pub, index) => (
-                <Col lg={12} key={index} data-aos="fade-up" data-aos-delay={index * 100}>
+                <Col lg={12} key={index}>
                   <div style={{
                     background: "linear-gradient(135deg, var(--card-bg) 0%, rgba(147, 95, 240, 0.05) 100%)",
                     border: "1px solid rgba(147, 95, 240, 0.3)",
@@ -397,7 +397,7 @@ const Achievements = () => {
 
         {/* Internships Section */}
         {internships.length > 0 && (
-          <div className="internships-section" data-aos="fade-up" data-aos-delay="300">
+          <div className="internships-section">
             <h3 style={{
               color: "var(--text-color)",
               marginBottom: "2rem",
@@ -410,7 +410,7 @@ const Achievements = () => {
             </h3>
             <Row className="g-4">
               {internships.map((internship, index) => (
-                <Col md={6} key={index} data-aos="zoom-in" data-aos-delay={index * 100}>
+                <Col md={6} key={index}>
                   <div style={{
                     background: "linear-gradient(135deg, var(--card-bg) 0%, rgba(0, 210, 255, 0.05) 100%)",
                     border: `1px solid ${internship.color}30`,
@@ -489,46 +489,7 @@ const Achievements = () => {
         )}
       </Container>
 
-      <style>{`
-        .achievements-section {
-          position: relative;
-          z-index: 2;
-        }
-
-        .section-header {
-          text-align: center;
-          margin-bottom: 3rem;
-        }
-
-        .filter-btn {
-          transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);
-        }
-
-        .cert-card {
-          position: relative;
-          z-index: 1;
-        }
-
-        @media (max-width: 768px) {
-          .certifications-grid {
-            margin-bottom: 2rem;
-          }
-
-          .filter-btn {
-            padding: 8px 16px;
-            font-size: 0.9rem;
-          }
-
-          .cert-card {
-            padding: 1.25rem;
-          }
-        }
-      `}</style>
+      
     </section>
   );
 };

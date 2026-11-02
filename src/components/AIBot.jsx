@@ -276,7 +276,7 @@ const AIBot = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          animation: "pulse-bot 2s ease-in-out infinite"
+          
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "scale(1.1)";
@@ -391,7 +391,7 @@ const AIBot = () => {
                     height: "8px",
                     borderRadius: "50%",
                     background: "var(--accent-1)",
-                    animation: "bounce 1.4s infinite"
+                    
                   }}
                 />
                 <div
@@ -400,7 +400,7 @@ const AIBot = () => {
                     height: "8px",
                     borderRadius: "50%",
                     background: "var(--accent-1)",
-                    animation: "bounce 1.4s infinite",
+                    
                     animationDelay: "0.2s"
                   }}
                 />
@@ -410,7 +410,7 @@ const AIBot = () => {
                     height: "8px",
                     borderRadius: "50%",
                     background: "var(--accent-1)",
-                    animation: "bounce 1.4s infinite",
+                    
                     animationDelay: "0.4s"
                   }}
                 />

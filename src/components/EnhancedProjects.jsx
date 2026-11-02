@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import VanillaTilt from "vanilla-tilt";
 
 const EnhancedProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedTech, setSelectedTech] = useState("all");
-  const [animateCards, setAnimateCards] = useState(false);
-  const tiltRefs = useRef([]);
 
   const projects = [
     {
@@ -138,7 +136,7 @@ const EnhancedProjects = () => {
   }, [selectedCategory, selectedTech]);
 
   return (
-    <section id="projects" className="py-6" data-aos="fade-up">
+    <section id="projects" className="py-6">
       <div className="container">
         <h2 className="fw-bold text-center mb-2" style={{
           color: "var(--text-color)",
@@ -158,7 +156,7 @@ const EnhancedProjects = () => {
         </p>
 
         {/* Filter Controls */}
-        <div className="filters-section mb-5" data-aos="fade-down" data-aos-delay="100">
+        <div className="filters-section mb-5">
           <div style={{ marginBottom: "1.5rem" }}>
             <p style={{ color: "var(--text-secondary)", marginBottom: "0.75rem", fontWeight: "600" }}>
               <i className="bi bi-funnel-fill me-2" style={{ color: "var(--accent-1)" }}></i>Filter by Category:
@@ -229,9 +227,8 @@ const EnhancedProjects = () => {
         <div className="row g-4">
           {filteredProjects.length > 0 ? (
             filteredProjects.map((proj, index) => (
-              <div key={index} className="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay={index * 100}>
+              <div key={index} className="col-md-6 col-lg-4">
                   <div
-                  ref={el => tiltRefs.current[index] = el}
                   className={`project-card ${proj.featured ? "featured-flagship-card" : ""}`}
                   style={{
                     background: proj.featured
@@ -245,8 +242,6 @@ const EnhancedProjects = () => {
                     overflow: "hidden",
                     cursor: "pointer",
                     transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                    transform: animateCards ? "translateY(0) scale(1)" : "translateY(20px) scale(0.95)",
-                    opacity: animateCards ? 1 : 0,
                     boxShadow: proj.featured ? "0 10px 30px rgba(0, 210, 255, 0.15)" : "none"
                   }}
                   onMouseEnter={(e) => {
@@ -460,24 +455,7 @@ const EnhancedProjects = () => {
         </div>
       </div>
 
-      <style>{`
-        .filters-section {
-          padding: 2rem;
-          background: linear-gradient(135deg, rgba(0, 210, 255, 0.05), rgba(146, 95, 240, 0.05));
-          border-radius: 15px;
-          border: 1px solid var(--border-color);
-        }
-
-        .project-card {
-          transform-style: preserve-3d;
-        }
-
-        @media (max-width: 768px) {
-          .project-card {
-            padding: 1.25rem;
-          }
-        }
-      `}</style>
+      
     </section>
   );
 };

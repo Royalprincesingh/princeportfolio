@@ -130,27 +130,27 @@ const Contact = () => {
       <div className="container">
         <div className="row g-5">
           {/* Contact Info Section */}
-          <div className="col-lg-5" data-aos="fade-right">
-            <h2 className="display-5 fw-bold gradient-text mb-4" data-aos="fade-down">Let's Connect</h2>
-            <p className="text-secondary mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div className="col-lg-5">
+            <h2 className="display-5 fw-bold gradient-text mb-4">Let's Connect</h2>
+            <p className="text-secondary mb-4">
               Currently seeking entry-level roles in MERN stack and Web Development.
             </p>
 
             {/* Availability Indicator */}
-            <div className="d-flex align-items-center mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div className="d-flex align-items-center mb-4">
               <div style={{
                 width: "10px",
                 height: "10px",
                 backgroundColor: "#28a745",
                 borderRadius: "50%",
                 marginRight: "10px",
-                animation: "pulse 2s infinite"
+                
               }}></div>
               <span style={{ color: "#28a745", fontWeight: "600" }}>Open for New Opportunities</span>
             </div>
 
             {/* Contact Details */}
-            <div className="d-flex align-items-center mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div className="d-flex align-items-center mb-4">
               <div className="contact-icon me-3">
                 <i className="bi bi-geo-alt"></i>
               </div>
@@ -160,7 +160,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="d-flex align-items-center mb-4" data-aos="fade-up" data-aos-delay="500">
+            <div className="d-flex align-items-center mb-4">
               <div className="contact-icon me-3">
                 <i className="bi bi-envelope"></i>
               </div>
@@ -170,7 +170,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="d-flex align-items-center mb-4" data-aos="fade-up" data-aos-delay="600">
+            <div className="d-flex align-items-center mb-4">
               <div className="contact-icon me-3">
                 <i className="bi bi-telephone"></i>
               </div>
@@ -181,7 +181,7 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className="social-links mt-5" data-aos="fade-up" data-aos-delay="700">
+            <div className="social-links mt-5">
               <a
                 href="https://linkedin.com/in/royaliprincesingh"
                 target="_blank"
@@ -212,7 +212,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form Section */}
-          <div className="col-lg-7" data-aos="fade-left">
+          <div className="col-lg-7">
             <div className="contact-form-card p-4">
               {status.message && (
                 <div className={`alert ${status.type === 'success' ? 'alert-success' : 'alert-danger'} mb-4`}
@@ -535,10 +535,6 @@ const Contact = () => {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: shine 3s linear infinite;
-        }
-
-        @keyframes shine {
-          to { background-position: 200% center; }
         }
 
         @media (max-width: 768px) {

@@ -1,12 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import VanillaTilt from "vanilla-tilt";
 import "./enhanced-skills.css";
 
 const EnhancedSkills = () => {
-  const skillRefs = useRef([]);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [visibleSkills, setVisibleSkills] = useState(new Set());
 
   const skillsData = {
     mobile: [
@@ -47,24 +44,9 @@ const EnhancedSkills = () => {
     ? allSkills 
     : skillsData[activeCategory] || allSkills;
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setVisibleSkills(prev => new Set([...prev, entry.target.id]));
-        }
-      });
-    }, { threshold: 0.2 });
-
-    skillRefs.current.forEach(ref => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, [activeCategory]);
 
   return (
-    <section id="skills" className="py-6 enhanced-skills-section" data-aos="fade-up">
+    <section id="skills" className="py-6 enhanced-skills-section">
       <Container>
         <h2 className="fw-bold text-center mb-2" style={{
           color: "var(--text-color)",
@@ -76,7 +58,7 @@ const EnhancedSkills = () => {
         </h2>
 
         {/* Category Filter */}
-        <div className="skill-categories mb-5" data-aos="fade-down" data-aos-delay="100">
+        <div className="skill-categories mb-5">
           <div style={{
             display: "flex",
             justifyContent: "center",
@@ -113,8 +95,6 @@ const EnhancedSkills = () => {
           {filtered.map((skill, index) => (
             <Col md={6} lg={4} key={skill.name}>
               <div
-                ref={el => skillRefs.current[index] = el}
-                id={`skill-${index}`}
                 className="skill-item animated-skill"
                 style={{
                   background: "linear-gradient(135deg, var(--card-bg) 0%, rgba(0, 210, 255, 0.03) 100%)",
@@ -125,9 +105,7 @@ const EnhancedSkills = () => {
                   overflow: "hidden",
                   transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   cursor: "pointer",
-                  transform: visibleSkills.has(`skill-${index}`) ? "translateY(0)" : "translateY(30px)",
-                  opacity: visibleSkills.has(`skill-${index}`) ? 1 : 0
-                }}
+                  }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-5px) scale(1.02)";
                   e.currentTarget.style.boxShadow = `0 20px 40px ${skill.color}25`;
@@ -144,7 +122,7 @@ const EnhancedSkills = () => {
                   position: "absolute",
                   inset: 0,
                   background: `linear-gradient(45deg, transparent, ${skill.color}10, transparent)`,
-                  animation: "shimmer 3s infinite",
+                  
                   pointerEvents: "none"
                 }} />
 
@@ -157,7 +135,7 @@ const EnhancedSkills = () => {
                   }}>
                     <div style={{
                       fontSize: "1.8rem",
-                      animation: "pulse-icon 2s ease-in-out infinite",
+                      
                       color: skill.color
                     }}>
                       <i className={skill.icon}></i>
@@ -199,10 +177,10 @@ const EnhancedSkills = () => {
                         height: "100%",
                         background: `linear-gradient(90deg, ${skill.color}, #00d2ff)`,
                         borderRadius: "10px",
-                        width: visibleSkills.has(`skill-${index}`) ? `${skill.level}%` : "0%",
-                        transition: "width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                        width: `${skill.level}%`,
+                        
                         boxShadow: `0 0 15px ${skill.color}60`,
-                        animation: "fillBar 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards"
+                        
                       }}
                     />
                   </div>
@@ -235,7 +213,7 @@ const EnhancedSkills = () => {
             border: "1px solid var(--border-color)",
             textAlign: "center"
           }}
-          data-aos="fade-up"
+         
         >
           <p style={{
             color: "var(--text-secondary)",
@@ -276,49 +254,7 @@ const EnhancedSkills = () => {
         </div>
       </Container>
 
-      <style>{`
-        .enhanced-skills-section {
-          position: relative;
-          padding: 4rem 0;
-        }
-
-        .skill-filter-btn {
-          transition: all 0.3s ease;
-        }
-
-        .skill-filter-btn:hover {
-          transform: translateY(-2px);
-        }
-
-        .animated-skill {
-          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-
-        @keyframes pulse-icon {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-        }
-
-        @keyframes fillBar {
-          0% { width: 0; }
-          100% { width: var(--skill-level); }
-        }
-
-        @media (max-width: 768px) {
-          .enhanced-skills-section {
-            padding: 2rem 0;
-          }
-
-          .animated-skill {
-            padding: 1.25rem;
-          }
-        }
-      `}</style>
+      
     </section>
   );
 };
