@@ -118,21 +118,6 @@ const EnhancedProjects = () => {
     return catMatch && techMatch;
   });
 
-  useEffect(() => {
-    tiltRefs.current.forEach(ref => {
-      if (ref) {
-        VanillaTilt.init(ref, {
-          max: 5,
-          speed: 300,
-          scale: 1.02,
-          glare: true,
-          "max-glare": 0.2
-        });
-      }
-    });
-
-    setAnimateCards(true);
-  }, [selectedCategory, selectedTech]);
 
   return (
     <section id="projects" className="py-6">
