@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const StatsSection = () => {
   const [counts, setCounts] = useState({ projects: 0, certifications: 0, experience: 0, contributions: 0 });
@@ -10,43 +10,12 @@ const StatsSection = () => {
     { label: "Research Publications", value: 1, icon: "bi bi-journal-bookmark-fill", color: "#00d2ff" }
   ];
 
-  useEffect(() => {
-    const counters = {
-      projects: { target: 12, current: 0 },
-      certifications: { target: 13, current: 0 },
-      experience: { target: 3, current: 0 },
-      contributions: { target: 1, current: 0 }
-    };
-
-    const interval = setInterval(() => {
-      let allDone = true;
-      const newCounts = {};
-
-      Object.keys(counters).forEach(key => {
-        if (counters[key].current < counters[key].target) {
-          counters[key].current += Math.ceil(counters[key].target / 30);
-          if (counters[key].current > counters[key].target) {
-            counters[key].current = counters[key].target;
-          }
-          allDone = false;
-        }
-        newCounts[key] = counters[key].current;
-      });
-
-      setCounts(newCounts);
-
-      if (allDone) clearInterval(interval);
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="py-5 stats-section" data-aos="fade-up">
+    <section className="py-5 stats-section" >
       <div className="container">
         <div className="row g-4">
           {stats.map((stat, index) => (
-            <div key={index} className="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay={index * 100}>
+            <div key={index} className="col-md-6 col-lg-3"  >
               <div
                 className="stat-card"
                 style={{
@@ -77,7 +46,7 @@ const StatsSection = () => {
                     position: "absolute",
                     inset: 0,
                     background: `radial-gradient(circle, ${stat.color}10, transparent)`,
-                    animation: "pulse-bg 3s ease-in-out infinite",
+                    
                     pointerEvents: "none"
                   }}
                 />
@@ -86,7 +55,7 @@ const StatsSection = () => {
                   <div style={{
                     fontSize: "2.8rem",
                     marginBottom: "0.5rem",
-                    animation: "float 3s ease-in-out infinite",
+                    
                     color: stat.color
                   }}>
                     <i className={stat.icon}></i>
@@ -101,12 +70,12 @@ const StatsSection = () => {
                     marginBottom: "0.5rem"
                   }}>
                     {stat.label === "Years of Experience" 
-                      ? counts.experience 
+                      ? stat.value 
                       : stat.label === "Certifications Earned"
-                      ? counts.certifications
+                      ? stat.value
                       : stat.label === "Projects Completed"
-                      ? counts.projects
-                      : counts.contributions}
+                      ? stat.value
+                      : stat.value}
                     {stat.label === "Years of Experience" && "+"}
                   </div>
                   <p style={{
@@ -124,45 +93,7 @@ const StatsSection = () => {
         </div>
       </div>
 
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse-bg {
-          0%, 100% { opacity: 0.5; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.1); }
-        }
-
-        .stats-section {
-          background: linear-gradient(135deg, rgba(0, 210, 255, 0.02) 0%, rgba(147, 95, 240, 0.02) 100%);
-          position: relative;
-          padding: 4rem 0;
-        }
-
-        .stat-card {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .stat-card::before {
-          content: '';
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
-          background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-          transform: rotate(45deg);
-          animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-          0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-          100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-      `}</style>
+      
     </section>
   );
 };

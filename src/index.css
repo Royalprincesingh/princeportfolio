@@ -43,63 +43,7 @@
   background-color: var(--dark-bg);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pageLoad {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(0, 210, 255, 0.5);
-  }
-}
-
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
-}
+/* Static visual styling; motion is intentionally restrained. */
 
 /* Unique Glow Background */
 .glow-bg {
@@ -113,28 +57,12 @@
   pointer-events: none;
 }
 
-/* Animated Text Gradient */
+/* Keep gradient text static to avoid continuous visual movement. */
 .gradient-text {
-  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-1));
-  background-size: 200% auto;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shine 3s linear infinite;
-}
-
-.portfolio-wrapper {
-  animation: pageLoad 0.6s ease-out;
-}
-
-.fade-in {
-  animation: fadeIn 0.8s ease-in forwards;
-  opacity: 1;
-}
-
-.slide-in {
-  animation: slideIn 0.8s ease-out forwards;
-  opacity: 1;
 }
 
 .hover-lift {
@@ -362,4 +290,8 @@ section:nth-child(even) {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }

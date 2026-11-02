@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import MouseTrail from "./components/MouseTrail";
 import StatsSection from "./components/StatsSection";
 import EnhancedSkills from "./components/EnhancedSkills";
 import Experience from "./components/Experience";
@@ -21,17 +18,8 @@ function App() {
   const handleShowResume = () => setShowResume(true);
   const handleCloseResume = () => setShowResume(false);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100,
-    });
-  }, []);
-
-  return (
+return (
     <div className="portfolio-wrapper bg-dark text-light">
-      <MouseTrail />
       <div className="glow-bg"></div>
 
       {/* Floating Quick Action: Download Resume (Desktop) */}
