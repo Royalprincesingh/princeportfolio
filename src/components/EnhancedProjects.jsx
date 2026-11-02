@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import VanillaTilt from "vanilla-tilt";
 
 const EnhancedProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
